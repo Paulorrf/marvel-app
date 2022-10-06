@@ -1,15 +1,25 @@
 import React, { ReactNode } from "react";
 
 interface Props {
-  bgImage: string;
-  color?: string;
+  bgImage: String;
+  bgColor?: String;
+  textColor?: String;
   children: ReactNode;
+  card?: boolean;
 }
 
-const Background = ({ bgImage, color, children }: Props) => {
+const Background = ({
+  bgImage,
+  textColor,
+  children,
+  card = false,
+  bgColor = "bg-slate-600",
+}: Props) => {
   return (
     <div
-      className={`${bgImage} relative h-48 bg-slate-600 bg-cover bg-no-repeat text-white bg-blend-multiply`}
+      className={`${bgImage} relative h-48 ${bgColor}  bg-cover bg-center bg-no-repeat text-white bg-blend-multiply ${
+        card ? "hover:bg-[length:700px_460px]" : ""
+      } `}
     >
       {children}
     </div>
