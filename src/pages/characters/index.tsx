@@ -28,14 +28,11 @@ export async function getServerSideProps() {
     return res;
   });
 
-  let data = [];
+  let data: any = [];
 
-  data.push(await promises[0].json());
-  data.push(await promises[1].json());
-  data.push(await promises[2].json());
-  data.push(await promises[3].json());
-  data.push(await promises[4].json());
-  data.push(await promises[5].json());
+  for (let i = 0; i < promises.length; i++) {
+    data.push(await promises[i].json());
+  }
 
   return { props: { data } };
 }
