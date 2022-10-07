@@ -7,7 +7,7 @@ import Background from "./Background";
 function createCard(route: string, name: string) {
   return (
     <Background card bgImage="bg-banner" bgColor="bg-slate-500">
-      <Link href={`/${route}`}>
+      <Link href={`${route}`}>
         <div className="h-full cursor-pointer text-xl child:hover:px-8 child:hover:text-2xl">
           <h2 className="gray-400 gray-500 absolute bottom-6 left-2 bg-gradient-to-r from-transparent to-gray-700 px-4">
             {name}
@@ -21,8 +21,8 @@ function createCard(route: string, name: string) {
 const ImgNavbar = () => {
   const routes = [
     { route: "/", name: "Home" },
-    { route: "/characters", name: "Characters" },
-    { route: "/characters", name: "Characters" },
+    { route: "/characters", name: "Characters1" },
+    { route: "/characters", name: "Characters2" },
     { route: "/characters", name: "Characters" },
   ];
 

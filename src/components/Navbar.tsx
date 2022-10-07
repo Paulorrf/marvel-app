@@ -16,13 +16,13 @@ const Navbar = () => {
         <li className={pathname === "/characters" ? "underline" : ""}>
           <Link href="/characters">Characters</Link>
         </li>
-        <li className={pathname === "/characters1" ? "underline" : ""}>
+        <li className={pathname === "/characters" ? "underline" : ""}>
           Characters
         </li>
-        <li className={pathname === "/characters2" ? "underline" : ""}>
+        <li className={pathname === "/characters" ? "underline" : ""}>
           Characters
         </li>
-        <li className={pathname === "/characters3" ? "underline" : ""}>
+        <li className={pathname === "/characters" ? "underline" : ""}>
           Characters
         </li>
       </ul>
