@@ -5,15 +5,17 @@ import Navbar from "../components/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div
-      style={{ fontFamily: "Alkalami, serif" }}
-      className="h-screen bg-slate-900"
-    >
+    <>
       <Background bgImage="bg-banner">
         <Navbar />
       </Background>
-      <Component {...pageProps} />
-    </div>
+      <div
+        style={{ fontFamily: "Alkalami, serif" }}
+        className="h-screen bg-slate-900"
+      >
+        <Component {...pageProps} />
+      </div>
+    </>
   );
 }
 

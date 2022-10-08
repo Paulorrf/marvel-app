@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+import Link from "next/link";
+
+import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
+
 interface Props {
   data: any;
 }
@@ -8,32 +12,41 @@ interface Props {
 function createCard(data: any) {
   return data.map((hero: any) => {
     return (
-      <div key={hero.data.results[0].thumbnail.path} className="relative">
-        <div className="absolute top-[60%] z-20">
-          <h2
-            style={{ textShadow: "1px 1px 1px black" }}
-            className="mx-2 -mt-2 text-white"
-          >
-            {hero.data.results[0].description}
-          </h2>
+      <Link
+        key={hero.data.results[0].thumbnail.path}
+        href={`/characters/${hero.data.results[0].name.toLowerCase()}`}
+      >
+        <div
+          key={hero.data.results[0].thumbnail.path}
+          className="group relative cursor-pointer"
+        >
+          <div className="absolute top-[60%] z-20 opacity-0 group-hover:opacity-100">
+            <h2
+              style={{ textShadow: "1px 1px 1px black" }}
+              className="mx-2 -mt-2 text-white"
+            >
+              {hero.data.results[0]?.description}
+            </h2>
+          </div>
+          <div>
+            <Image
+              src={`${hero.data.results[0].thumbnail.path}.${hero.data.results[0].thumbnail.extension}`}
+              alt="teste"
+              height={"640px"}
+              width={"420px"}
+            />
+          </div>
         </div>
-        <Image
-          src={`${hero.data.results[0].thumbnail.path}.${hero.data.results[0].thumbnail.extension}`}
-          alt="teste"
-          height={"600px"}
-          width={"420px"}
-        />
-      </div>
+      </Link>
     );
   });
 }
 
 const Carousel = ({ data }: Props) => {
-  // console.log(data);
   const [idx, setIdx] = useState(0);
   const allHeroes = createCard(data);
 
-  console.log(allHeroes);
+  // console.log(data);
 
   const nextSlide = () => {
     if (idx + 4 < allHeroes.length) {
@@ -56,40 +69,26 @@ const Carousel = ({ data }: Props) => {
   return (
     <div>
       <div
-        className="absolute top-[60%] left-4 z-10 bg-transparent"
+        className="absolute top-[60%] left-6 z-10 cursor-pointer bg-transparent"
         onClick={prevSlide}
       >
-        <h2>LEFT</h2>
+        <div>
+          <BsArrowLeftCircle size="40px" color="#fff" />
+        </div>
       </div>
-      <div className="mx-4 mt-2 grid grid-cols-4 gap-2 child:min-h-[420px]">
+      <div className="mx-4 grid grid-cols-1 gap-2 pt-4 child:min-h-[420px] md:grid-cols-4">
         {allHeroes[idx]}
         {allHeroes[idx + 1]}
         {allHeroes[idx + 2]}
         {allHeroes[idx + 3]}
-
-        {/* {data.map((hero: any) => {
-          return (
-            <div key={hero.data.results[0].thumbnail.path} className="relative">
-              <div className="absolute top-[60%] z-20">
-                <h2
-                  style={{ textShadow: "1px 1px 1px black" }}
-                  className="mx-2 -mt-2 text-white"
-                >
-                  {hero.data.results[0].description}
-                </h2>
-              </div>
-              <Image
-                src={`${hero.data.results[0].thumbnail.path}.${hero.data.results[0].thumbnail.extension}`}
-                alt="teste"
-                height={"600px"}
-                width={"420px"}
-              />
-            </div>
-          );
-        })} */}
       </div>
-      <div className="absolute top-[60%] right-4 z-10" onClick={nextSlide}>
-        <h2>RIGHT</h2>
+      <div
+        className="absolute top-[60%] right-6 z-10 cursor-pointer"
+        onClick={nextSlide}
+      >
+        <div>
+          <BsArrowRightCircle size="40px" color="#fff" />
+        </div>
       </div>
     </div>
   );

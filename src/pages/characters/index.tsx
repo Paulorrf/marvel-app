@@ -22,7 +22,10 @@ export async function getServerSideProps() {
       `${url}name=wolverine&ts=1&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`
     ),
     fetch(
-      `${url}name=daredevil&ts=1&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`
+      `${url}name=vision&ts=1&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`
+    ),
+    fetch(
+      `${url}name=ultron&ts=1&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`
     ),
   ]).then((res) => {
     return res;
