@@ -20,15 +20,15 @@ function createCard(data: any) {
           key={hero.data.results[0].thumbnail.path}
           className="group relative cursor-pointer"
         >
-          <div className="absolute top-[60%] z-20 opacity-0 group-hover:opacity-100">
+          <div className="absolute top-[60%] z-20 opacity-0 group-hover:animate-fadeIn group-hover:opacity-100">
             <h2
-              style={{ textShadow: "1px 1px 1px black" }}
+              style={{ textShadow: "2px 2px 2px black" }}
               className="mx-2 -mt-2 text-white"
             >
               {hero.data.results[0]?.description}
             </h2>
           </div>
-          <div>
+          <div className="group-hover:opacity-50">
             <Image
               src={`${hero.data.results[0].thumbnail.path}.${hero.data.results[0].thumbnail.extension}`}
               alt="teste"
@@ -49,9 +49,9 @@ const Carousel = ({ data }: Props) => {
   // console.log(data);
 
   const nextSlide = () => {
-    if (idx + 4 < allHeroes.length) {
+    if (idx + allHeroes.length - 3 < allHeroes.length) {
       setIdx((prev) => prev + 1);
-    } else if (idx + 4 === allHeroes.length) {
+    } else if (idx + allHeroes.length - 3 === allHeroes.length) {
       setIdx(0);
     } else {
       setIdx((prev) => prev - 1);
@@ -65,6 +65,8 @@ const Carousel = ({ data }: Props) => {
       setIdx((prev) => prev - 1);
     }
   };
+
+  // console.log(allHeroes.length);
 
   return (
     <div>

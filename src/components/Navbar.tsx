@@ -6,6 +6,14 @@ import { useRouter } from "next/router";
 
 const Navbar = () => {
   let { pathname } = useRouter();
+  const router = useRouter();
+
+  const handleSearch = (event: any) => {
+    if (event.key.toLowerCase() === "enter") {
+      router.push(`/characters/${event.target.value.toLowerCase()}`);
+      event.target.value = "";
+    }
+  };
 
   return (
     <nav>
@@ -30,6 +38,7 @@ const Navbar = () => {
             name="search character"
             placeholder="Search Character"
             className=" w-40 rounded-lg border px-2 text-base text-black"
+            onKeyDown={handleSearch}
           />
         </li>
       </ul>

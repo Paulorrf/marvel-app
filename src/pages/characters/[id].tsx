@@ -1,5 +1,6 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 import CharactersEventsComics from "../../components/CharactersEventsComics";
 
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
       { params: { id: "vision" } },
       { params: { id: "ultron" } },
     ],
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -30,7 +31,15 @@ export async function getStaticProps({ params }: any) {
 
 const Character = ({ data }: any) => {
   const [selectedOption, setSelectedOption] = useState("description");
-  console.log(data);
+  const router = useRouter();
+
+  //if character doesn't have info
+  useEffect(() => {
+    if (data.data.results[0] === undefined) {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <div className="mx-2 grid min-h-[600px] grid-cols-[45%_minmax(45%,_1fr)_10%] pt-2">
       <div className="relative max-h-[600px]">
@@ -50,6 +59,7 @@ const Character = ({ data }: any) => {
         <h2 className="mb-4 text-center text-lg font-bold">
           {data.data.results[0].name.toUpperCase()}
         </h2>
+
         {selectedOption.toLowerCase() === "description" &&
           data.data.results[0].description}
 
@@ -75,7 +85,7 @@ const Character = ({ data }: any) => {
           <li
             className={`absolute ${
               selectedOption.toLowerCase() === "description"
-                ? "-left-6 underline decoration-2 underline-offset-2"
+                ? "-left-6 underline decoration-2 underline-offset-4"
                 : ""
             }`}
             onClick={() => setSelectedOption("description")}
@@ -85,7 +95,7 @@ const Character = ({ data }: any) => {
           <li
             className={`absolute top-[20%] ${
               selectedOption.toLowerCase() === "comics"
-                ? "-left-6 underline decoration-2 underline-offset-2"
+                ? "-left-6 underline decoration-2 underline-offset-4"
                 : ""
             }`}
             onClick={() => setSelectedOption("comics")}
@@ -95,7 +105,7 @@ const Character = ({ data }: any) => {
           <li
             className={`absolute top-[30%] ${
               selectedOption.toLowerCase() === "events"
-                ? "-left-6 underline decoration-2 underline-offset-2"
+                ? "-left-6 underline decoration-2 underline-offset-4"
                 : ""
             }`}
             onClick={() => setSelectedOption("events")}
