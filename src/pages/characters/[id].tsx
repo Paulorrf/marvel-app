@@ -32,15 +32,21 @@ const Character = ({ data }: any) => {
   const [selectedOption, setSelectedOption] = useState("description");
   console.log(data);
   return (
-    <div className="mx-2 grid min-h-[600px] grid-cols-[40%_minmax(40%,_1fr)_20%] pt-2">
-      <div className="relative">
+    <div className="mx-2 grid min-h-[600px] grid-cols-[45%_minmax(45%,_1fr)_10%] pt-2">
+      <div className="relative max-h-[600px]">
         <Image
           src={`${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`}
-          alt="teste"
-          layout="fill"
+          alt={data.data.results[0].name}
+          layout="responsive"
+          width={"100%"}
+          height={"100%"}
         />
       </div>
-      <div className="p-4 text-white">
+      <div
+        className={`mx-auto ${
+          selectedOption === "description" ? "pt-12" : "py-4"
+        } px-8 text-white`}
+      >
         <h2 className="mb-4 text-center text-lg font-bold">
           {data.data.results[0].name.toUpperCase()}
         </h2>
@@ -63,11 +69,39 @@ const Character = ({ data }: any) => {
           />
         )}
       </div>
-      <div className="relative z-10 h-full bg-slate-400 bg-blured bg-cover bg-center bg-no-repeat text-white bg-blend-multiply">
-        <ul className="z-20 h-full  pt-16 text-center child:mb-4 child:cursor-pointer child:border child:p-2 child:uppercase">
-          <li onClick={() => setSelectedOption("description")}>Description</li>
-          <li onClick={() => setSelectedOption("comics")}>Comics</li>
-          <li onClick={() => setSelectedOption("events")}>Events</li>
+      <div className="relative relative h-full text-white backdrop-blur-lg">
+        <div className="h-full bg-slate-800 bg-cover bg-center bg-no-repeat blur"></div>
+        <ul className="absolute top-0 left-4 h-full pt-16 text-center child:mb-4 child:cursor-pointer child:p-2 child:uppercase">
+          <li
+            className={`absolute ${
+              selectedOption.toLowerCase() === "description"
+                ? "-left-6 underline decoration-2 underline-offset-2"
+                : ""
+            }`}
+            onClick={() => setSelectedOption("description")}
+          >
+            Description
+          </li>
+          <li
+            className={`absolute top-[20%] ${
+              selectedOption.toLowerCase() === "comics"
+                ? "-left-6 underline decoration-2 underline-offset-2"
+                : ""
+            }`}
+            onClick={() => setSelectedOption("comics")}
+          >
+            Comics
+          </li>
+          <li
+            className={`absolute top-[30%] ${
+              selectedOption.toLowerCase() === "events"
+                ? "-left-6 underline decoration-2 underline-offset-2"
+                : ""
+            }`}
+            onClick={() => setSelectedOption("events")}
+          >
+            Events
+          </li>
         </ul>
       </div>
     </div>
