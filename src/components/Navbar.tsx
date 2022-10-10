@@ -1,10 +1,13 @@
-import React, { KeyboardEvent } from "react";
+import React, { KeyboardEvent, useState } from "react";
 
 import Link from "next/link";
+
+import Modal from "./Modal";
 
 import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const [showModal, setShowModal] = useState(false);
   let { pathname } = useRouter();
   const router = useRouter();
 
@@ -45,10 +48,13 @@ const Navbar = () => {
             name="search character"
             placeholder="Search Character"
             className=" w-40 rounded-lg border px-2 text-base text-black"
-            onKeyDown={handleSearch}
+            // onKeyDown={handleSearch}
+            onClick={() => setShowModal(true)}
           />
         </li>
       </ul>
+
+      <Modal showModal={showModal} setShowModal={setShowModal} />
     </nav>
   );
 };
