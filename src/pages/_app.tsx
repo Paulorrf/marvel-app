@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Background>
       <div
         style={{ fontFamily: "Alkalami, serif" }}
-        className="h-full bg-slate-900"
+        className="h-full bg-slate-800 bg-background bg-cover bg-no-repeat bg-blend-multiply"
       >
         <Component {...pageProps} />
       </div>

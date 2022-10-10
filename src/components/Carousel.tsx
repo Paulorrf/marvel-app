@@ -20,7 +20,7 @@ function createCard(data: any) {
           key={hero.data.results[0].thumbnail.path}
           className="group relative cursor-pointer"
         >
-          <div className="absolute top-[60%] z-20 opacity-0 group-hover:animate-fadeIn group-hover:opacity-100">
+          <div className="absolute top-[60%] z-20 bg-slate-900 py-2 px-1 opacity-0 group-hover:animate-fadeIn group-hover:opacity-100">
             <h2
               style={{ textShadow: "2px 2px 2px black" }}
               className="mx-2 -mt-2 text-white"
@@ -28,7 +28,7 @@ function createCard(data: any) {
               {hero.data.results[0]?.description}
             </h2>
           </div>
-          <div className="group-hover:opacity-50">
+          <div className="group-hover:opacity-">
             <Image
               src={`${hero.data.results[0].thumbnail.path}.${hero.data.results[0].thumbnail.extension}`}
               alt="teste"

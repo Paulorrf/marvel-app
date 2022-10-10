@@ -79,13 +79,16 @@ const Character = ({ data }: any) => {
           />
         )}
       </div>
-      <div className="relative relative h-full text-white backdrop-blur-lg">
-        <div className="h-full bg-slate-800 bg-cover bg-center bg-no-repeat blur"></div>
+      <div className="relative relative -mr-2 -mt-2 h-full text-white">
+        <div
+          className="h-full"
+          style={{ backgroundColor: "rgba(255,255,255,0.2)" }}
+        ></div>
         <ul className="absolute top-0 left-4 h-full pt-16 text-center child:mb-4 child:cursor-pointer child:p-2 child:uppercase">
           <li
             className={`absolute ${
               selectedOption.toLowerCase() === "description"
-                ? "-left-6 underline decoration-2 underline-offset-4"
+                ? "underline decoration-2 underline-offset-4"
                 : ""
             }`}
             onClick={() => setSelectedOption("description")}
@@ -95,7 +98,7 @@ const Character = ({ data }: any) => {
           <li
             className={`absolute top-[20%] ${
               selectedOption.toLowerCase() === "comics"
-                ? "-left-6 underline decoration-2 underline-offset-4"
+                ? "underline decoration-2 underline-offset-4"
                 : ""
             }`}
             onClick={() => setSelectedOption("comics")}
@@ -105,7 +108,7 @@ const Character = ({ data }: any) => {
           <li
             className={`absolute top-[30%] ${
               selectedOption.toLowerCase() === "events"
-                ? "-left-6 underline decoration-2 underline-offset-4"
+                ? "underline decoration-2 underline-offset-4"
                 : ""
             }`}
             onClick={() => setSelectedOption("events")}

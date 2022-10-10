@@ -1,13 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import Background from "../components/Background";
-import Navbar from "../components/Navbar";
 import ImgNavbar from "../components/ImgNavbar";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="h-[80vh]">
       <Head>
         <title>Marvel App</title>
         <meta name="description" content="Marvel App" />

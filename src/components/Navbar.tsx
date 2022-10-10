@@ -24,8 +24,8 @@ const Navbar = () => {
         <li className={pathname === "/characters" ? "underline" : ""}>
           <Link href="/characters">Characters</Link>
         </li>
-        <li className={pathname === "/characters" ? "underline" : ""}>
-          Characters
+        <li className={pathname === "/creators" ? "underline" : ""}>
+          Creators
         </li>
         <li className={pathname === "/characters" ? "underline" : ""}>
           Characters

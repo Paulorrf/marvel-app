@@ -12,7 +12,10 @@ const CharactersEventsComics = ({ name, data, refer }: any) => {
         {data.items.map((item: any) => {
           return (
             <div className="border" key={item.name}>
-              <div className="mx-2 flex items-center justify-between">
+              <div
+                className="mx-2 flex items-center justify-between"
+                style={{ textShadow: "2px 2px 2px black" }}
+              >
                 <p>{item.name}</p>
                 <span className="ml-4 cursor-pointer ">
                   <HiOutlineExternalLink color="#0284c7" />
