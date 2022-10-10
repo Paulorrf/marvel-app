@@ -1,4 +1,4 @@
-import React from "react";
+import React, { KeyboardEvent } from "react";
 
 import Link from "next/link";
 
@@ -8,10 +8,11 @@ const Navbar = () => {
   let { pathname } = useRouter();
   const router = useRouter();
 
-  const handleSearch = (event: any) => {
+  const handleSearch = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key.toLowerCase() === "enter") {
-      router.push(`/characters/${event.target.value.toLowerCase()}`);
-      event.target.value = "";
+      let element = event.target as HTMLInputElement;
+      router.push(`/characters/${element.value.toLowerCase()}`);
+      element.value = "";
     }
   };
 
@@ -21,11 +22,17 @@ const Navbar = () => {
         <li className={pathname === "/" ? "underline" : ""}>
           <Link href="/">Home</Link>
         </li>
-        <li className={pathname === "/characters" ? "underline" : ""}>
+        <li
+          className={
+            pathname === "/characters" || pathname === "/characters/[id]"
+              ? "underline"
+              : ""
+          }
+        >
           <Link href="/characters">Characters</Link>
         </li>
         <li className={pathname === "/creators" ? "underline" : ""}>
-          Creators
+          <Link href="/creators">Creators</Link>
         </li>
         <li className={pathname === "/characters" ? "underline" : ""}>
           Characters

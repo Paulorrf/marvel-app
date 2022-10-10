@@ -20,7 +20,7 @@ export async function getServerSideProps() {
     return res;
   });
 
-  let data: any = [];
+  let data = [];
 
   for (let i = 0; i < promises.length; i++) {
     data.push(await promises[i].json());
@@ -53,8 +53,10 @@ const index = ({ data }: any) => {
             >
               {creator.data.results[0].fullName} created{" "}
               {creator.data.results[0].comics.available} comics and participated
-              in the creation of {creator.data.results[0].events.available} big
-              events
+              in the creation of {creator.data.results[0].events.available} big{" "}
+              {creator.data.results[0].events.available === 1
+                ? "event"
+                : "events"}
             </p>
           </div>
         );

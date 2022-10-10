@@ -4,6 +4,10 @@ import React, { useEffect, useState } from "react";
 
 import CharactersEventsComics from "../../components/CharactersEventsComics";
 
+interface ParamsProps {
+  params: { id: number };
+}
+
 export async function getStaticPaths() {
   return {
     paths: [
@@ -19,7 +23,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({ params }: ParamsProps) {
   const url = "http://gateway.marvel.com/v1/public/characters?";
 
   const resp = await fetch(
@@ -38,6 +42,7 @@ const Character = ({ data }: any) => {
     if (data.data.results[0] === undefined) {
       router.push("/");
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
