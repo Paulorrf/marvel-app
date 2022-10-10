@@ -14,8 +14,7 @@ const Modal = ({ showModal, setShowModal }: any) => {
     <>
       {showModal && (
         <div
-          className="fixed top-0 left-0 z-40 flex h-full w-full items-center justify-center bg-center"
-          style={{ backgroundColor: "rgba(0,0,0,0.8)" }}
+          className="fixed top-0 left-0 z-40 flex h-full w-full items-center justify-center bg-rgba-darker bg-center"
           onClick={closeModal}
           ref={modalRef}
         >

@@ -31,6 +31,12 @@ module.exports = {
       animation: {
         fadeIn: "fadeIn 2s",
       },
+      colors: {
+        // prettier-ignore
+        'rgba-dark' : "rgba(0,0,0,0.4)",
+        // prettier-ignore
+        'rgba-darker':"rgba(0,0,0,0.8)",
+      },
     },
   },
   plugins: [

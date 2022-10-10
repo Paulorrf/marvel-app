@@ -85,10 +85,7 @@ const Character = ({ data }: any) => {
         )}
       </div>
       <div className="relative relative -mr-2 -mt-2 h-full text-white">
-        <div
-          className="h-full"
-          style={{ backgroundColor: "rgba(255,255,255,0.2)" }}
-        ></div>
+        <div className="h-full bg-rgba-darker"></div>
         <ul className="absolute top-0 left-4 h-full pt-16 text-center child:mb-4 child:cursor-pointer child:p-2 child:uppercase">
           <li
             className={`absolute ${

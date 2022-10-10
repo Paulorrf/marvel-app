@@ -45,10 +45,9 @@ const index = ({ data }: any) => {
             className={`bg-slate-400 ${creatorsImgs[index]} relative bg-blend-multiply`}
           >
             <p
-              className="absolute bottom-4 mx-2 text-white"
+              className="absolute bottom-4 mx-2 bg-rgba-dark text-white"
               style={{
                 textShadow: "2px 2px 2px black",
-                backgroundColor: "rgba(0,0,0,0.4)",
               }}
             >
               {creator.data.results[0].fullName} created{" "}
