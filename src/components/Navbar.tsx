@@ -1,23 +1,15 @@
-import React, { KeyboardEvent, useState } from "react";
+import React, { useState } from "react";
 
 import Link from "next/link";
 
 import Modal from "./Modal";
 
 import { useRouter } from "next/router";
+import Search from "./Search";
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   let { pathname } = useRouter();
-  const router = useRouter();
-
-  const handleSearch = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key.toLowerCase() === "enter") {
-      let element = event.target as HTMLInputElement;
-      router.push(`/characters/${element.value.toLowerCase()}`);
-      element.value = "";
-    }
-  };
 
   return (
     <nav>
@@ -47,7 +39,9 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <Search setShowModal={setShowModal} />
+      </Modal>
     </nav>
   );
 };
