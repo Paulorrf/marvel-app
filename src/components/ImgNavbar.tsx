@@ -20,10 +20,10 @@ function createCard(route: string, name: string) {
 
 const ImgNavbar = () => {
   const routes = [
-    { route: "/", name: "Home" },
     { route: "/characters", name: "Characters" },
     { route: "/creators", name: "Creators" },
-    { route: "/characters", name: "Characters" },
+    { route: "/comics", name: "Comics" },
+    { route: "/events", name: "Events" },
   ];
 
   return (

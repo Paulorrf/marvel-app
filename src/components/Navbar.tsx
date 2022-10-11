@@ -40,17 +40,10 @@ const Navbar = () => {
         <li className={pathname === "/characters" ? "underline" : ""}>
           Characters
         </li>
-        <li
-          className={pathname === "/characters" ? "-mb-2 underline" : "-mb-2 "}
-        >
-          <input
-            type="text"
-            name="search character"
-            placeholder="Search Character"
-            className=" w-40 rounded-lg border px-2 text-base text-black"
-            // onKeyDown={handleSearch}
-            onClick={() => setShowModal(true)}
-          />
+        <li>
+          <button onClick={() => setShowModal(true)} className="">
+            Search
+          </button>
         </li>
       </ul>
 
