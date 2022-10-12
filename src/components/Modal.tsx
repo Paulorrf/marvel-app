@@ -1,6 +1,9 @@
-import React, { useRef, MouseEvent } from "react";
+import React, { useRef, MouseEvent, useContext } from "react";
+import Context from "../context/context";
 
-const Modal = ({ showModal, setShowModal, children }: any) => {
+const Modal = ({ children }: any) => {
+  const [showModal, setShowModal] = useContext(Context);
+
   const modalRef = useRef<HTMLDivElement>(null);
 
   const closeModal = (e: MouseEvent<HTMLElement>) => {

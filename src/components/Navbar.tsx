@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Link from "next/link";
 
 import Modal from "./Modal";
 
+import Context from "../context/context";
+
 import { useRouter } from "next/router";
 import Search from "./Search";
 
 const Navbar = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useContext(Context);
   let { pathname } = useRouter();
 
   return (
@@ -39,8 +41,8 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <Modal showModal={showModal} setShowModal={setShowModal}>
-        <Search setShowModal={setShowModal} />
+      <Modal>
+        <Search />
       </Modal>
     </nav>
   );
