@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
+
+import ComicsInfo from "../components/ComicsInfo";
 import Modal from "../components/Modal";
+import Context from "../context/context";
 
 export async function getStaticProps() {
   const url = "http://gateway.marvel.com/v1/public/comics?";
@@ -17,8 +20,16 @@ export async function getStaticProps() {
   };
 }
 
-const comics = ({ data }: any) => {
+const Comics = ({ data }: any) => {
+  const [selectedComic, setSelectedComic] = useState<any>();
   console.log(data);
+  const [showModal, setShowModal] = useContext(Context);
+
+  const handleComic = (comic: any) => {
+    setSelectedComic(comic);
+    setShowModal(true);
+  };
+
   return (
     <div className="flex h-[120vh] justify-center">
       <div className="mt-8 h-96 bg-rgba-darker  p-4 text-white">
@@ -30,16 +41,19 @@ const comics = ({ data }: any) => {
             return (
               <div key={comic.title} className="flex items-center">
                 <p className="mr-2">{comic.title}</p>
-                <span>
+                <span onClick={() => handleComic(comic)}>
                   <HiOutlineExternalLink color="#0284c7" />
                 </span>
               </div>
             );
           })}
+          <Modal width="1000px">
+            <ComicsInfo comic={selectedComic} />
+          </Modal>
         </div>
       </div>
     </div>
   );
 };
 
-export default comics;
+export default Comics;

@@ -31,9 +31,13 @@ const Navbar = () => {
         <li className={pathname === "/creators" ? "underline" : ""}>
           <Link href="/creators">Creators</Link>
         </li>
-        <li className={pathname === "/characters" ? "underline" : ""}>
-          Characters
+        <li className={pathname === "/comics" ? "underline" : ""}>
+          <Link href="/comics">Comics</Link>
         </li>
+        <li className={pathname === "/events" ? "underline" : ""}>
+          <Link href="/events">Events</Link>
+        </li>
+
         <li>
           <button onClick={() => setShowModal(true)} className="">
             Search
