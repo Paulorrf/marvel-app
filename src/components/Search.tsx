@@ -1,13 +1,10 @@
 import { useRouter } from "next/router";
-import React, { useContext, useState } from "react";
-import Context from "../context/context";
+import React, { useState } from "react";
 
-const Search = () => {
+const Search = ({ setShowModal }: any) => {
   const [radioValue, setRadioValue] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
-
-  const [showModal, setShowModal] = useContext(Context);
 
   const handleChange = (event: any) => {
     setRadioValue(event.target.value);

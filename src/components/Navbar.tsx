@@ -1,17 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import Link from "next/link";
 
 import Modal from "./Modal";
 
-import Context from "../context/context";
-
 import { useRouter } from "next/router";
 import Search from "./Search";
 
 const Navbar = () => {
-  const [showModal, setShowModal] = useContext(Context);
+  const [showModal, setShowModal] = useState(false);
   let { pathname } = useRouter();
+
+  function handleChange() {
+    setShowModal(true);
+  }
 
   return (
     <nav>
@@ -39,14 +41,15 @@ const Navbar = () => {
         </li>
 
         <li>
-          <button onClick={() => setShowModal(true)} className="">
+          {/* <button onClick={() => setShowModal(true)} className=""> */}
+          <button onClick={handleChange} className="">
             SEARCH
           </button>
         </li>
       </ul>
 
-      <Modal>
-        <Search />
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <Search setShowModal={setShowModal} />
       </Modal>
     </nav>
   );

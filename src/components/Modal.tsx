@@ -1,15 +1,20 @@
-import React, { useRef, MouseEvent, useContext } from "react";
-import Context from "../context/context";
+import React, { useRef, MouseEvent } from "react";
 
 interface Props {
   width?: String;
   height?: String;
   children: any;
+  showModal?: any;
+  setShowModal?: any;
 }
 
-const Modal = ({ children, width = "400px", height = "300px" }: Props) => {
-  const [showModal, setShowModal] = useContext(Context);
-
+const Modal = ({
+  children,
+  width = "400px",
+  height = "300px",
+  showModal,
+  setShowModal,
+}: Props) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const closeModal = (e: MouseEvent<HTMLElement>) => {

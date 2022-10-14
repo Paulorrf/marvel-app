@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
 
 import EventsInfo from "../../components/EventsInfo";
 import Modal from "../../components/Modal";
-import Context from "../../context/context";
 
 export async function getStaticProps() {
   const url = "http://gateway.marvel.com/v1/public/events?";
@@ -22,7 +21,7 @@ export async function getStaticProps() {
 
 const Events = ({ events }: any) => {
   const [selectedComic, setSelectedComic] = useState<any>();
-  const [showModal, setShowModal] = useContext(Context);
+  const [showModal, setShowModal] = useState(false);
 
   const handleComic = (comic: any) => {
     setSelectedComic(comic);
@@ -52,7 +51,11 @@ const Events = ({ events }: any) => {
               </div>
             );
           })}
-          <Modal width="1000px">
+          <Modal
+            width="1000px"
+            showModal={showModal}
+            setShowModal={setShowModal}
+          >
             <EventsInfo comic={selectedComic} />
           </Modal>
         </div>
