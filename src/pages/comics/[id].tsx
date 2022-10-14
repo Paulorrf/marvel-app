@@ -1,4 +1,5 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 
 export async function getServerSideProps(context: any) {
   const url = "http://gateway.marvel.com/v1/public/comics?";
@@ -14,7 +15,14 @@ export async function getServerSideProps(context: any) {
 }
 
 const Comics = ({ comics }: any) => {
-  console.log(comics.data.results);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (comics === undefined || comics.data.results.length === 0) {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <div className="flex h-[120vh] justify-center">
       <div className="mt-8 max-h-[80vh] bg-rgba-darker  p-4 text-white">

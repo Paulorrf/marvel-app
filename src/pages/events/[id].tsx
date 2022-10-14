@@ -1,5 +1,6 @@
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
 
@@ -17,8 +18,19 @@ export async function getServerSideProps(context: any) {
 }
 
 const Events = ({ events }: any) => {
-  console.log(events.data.results[0].urls[0].url);
-  return (
+  const router = useRouter();
+
+  console.log(events);
+
+  useEffect(() => {
+    if (events === undefined || events.data.results.length === 0) {
+      router.push("/");
+    }
+  }, []);
+
+  return events === undefined || events.data.results.length === 0 ? (
+    <div>dasdsa</div>
+  ) : (
     <div className="flex h-[120vh] justify-center">
       <div className="mt-8 flex max-h-[80vh] w-[800px] items-center justify-center bg-rgba-darker p-4 text-white">
         <div>

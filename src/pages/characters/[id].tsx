@@ -45,10 +45,6 @@ const Character = ({ data }: any) => {
     }
   }, []);
 
-  // if (data.data.results.length === 0) {
-  //   router.push("/");
-  // }
-
   return data === undefined || data.data.results.length === 0 ? (
     <div>dasdsa</div>
   ) : (
