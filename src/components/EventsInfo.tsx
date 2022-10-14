@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 const EventsInfo = (comic: any) => {
+  console.log(comic);
   return (
     <div className="flex">
       <div>

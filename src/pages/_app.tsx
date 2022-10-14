@@ -6,9 +6,9 @@ import Navbar from "../components/Navbar";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Background bgImage="bg-banner">
-        <Navbar />
-      </Background>
+      {/* <Background bgImage="bg-banner"> */}
+      <Navbar />
+      {/* </Background> */}
       <div
         style={{ fontFamily: "Alkalami, serif" }}
         className="h-full bg-slate-800 bg-background bg-cover bg-no-repeat bg-blend-multiply"

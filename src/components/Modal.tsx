@@ -31,7 +31,7 @@ const Modal = ({
           onClick={closeModal}
           ref={modalRef}
         >
-          <div className={`h-[${height}] w-[${width}] bg-white text-black`}>
+          <div className={`${height} ${width} bg-white text-black`}>
             {children}
           </div>
         </div>

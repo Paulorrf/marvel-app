@@ -16,7 +16,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav>
+    <nav className="relative h-48 bg-slate-700 bg-banner text-white bg-blend-multiply">
       <ul className="absolute bottom-2 left-8 flex w-2/4 items-center justify-around text-xl child:decoration-4 child:underline-offset-4">
         <li className={pathname === "/" ? "underline" : ""}>
           <Link href="/">HOME</Link>
@@ -48,7 +48,12 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <Modal showModal={showModal} setShowModal={setShowModal}>
+      <Modal
+        width={"w-[500px]"}
+        height={"h-[200px]"}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      >
         <Search setShowModal={setShowModal} />
       </Modal>
     </nav>

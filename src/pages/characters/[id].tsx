@@ -36,16 +36,22 @@ export async function getStaticProps({ params }: ParamsProps) {
 const Character = ({ data }: any) => {
   const [selectedOption, setSelectedOption] = useState("description");
   const router = useRouter();
+  console.log(data);
 
   //if character doesn't have info
   useEffect(() => {
-    if (data.data.results[0] === undefined) {
+    if (data === undefined || data.data.results.length === 0) {
       router.push("/");
     }
-    // eslint-disable-next-line
   }, []);
 
-  return (
+  // if (data.data.results.length === 0) {
+  //   router.push("/");
+  // }
+
+  return data === undefined || data.data.results.length === 0 ? (
+    <div>dasdsa</div>
+  ) : (
     <div className="mx-2 grid min-h-[600px] grid-cols-[45%_minmax(45%,_1fr)_10%] pt-2">
       <div className="relative max-h-[600px]">
         <Image

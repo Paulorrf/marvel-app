@@ -39,7 +39,10 @@ const Comics = ({ comics }: any) => {
             return (
               <div key={comic.title} className="flex items-center">
                 <p className="mr-2">{comic.title}</p>
-                <span onClick={() => handleComic(comic)}>
+                <span
+                  className="cursor-pointer"
+                  onClick={() => handleComic(comic)}
+                >
                   <HiOutlineExternalLink color="#0284c7" />
                 </span>
               </div>

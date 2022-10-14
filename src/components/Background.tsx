@@ -18,7 +18,7 @@ const Background = ({
   return (
     <div
       className={`${bgImage} relative h-48 ${bgColor} bg-cover bg-center bg-no-repeat text-white bg-blend-multiply ${
-        card ? "hover:bg-[length:700px_460px]" : ""
+        card ? "hover:bg-[length:380px_520px]" : ""
       } `}
     >
       {children}

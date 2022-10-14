@@ -6,16 +6,32 @@ export async function getServerSideProps(context: any) {
   const resp = await fetch(
     `${url}title=${context.params.id}&ts=1&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`
   );
-  const data = await resp.json();
+  const comics = await resp.json();
 
   return {
-    props: { data },
+    props: { comics },
   };
 }
 
-const Comics = ({ data }: any) => {
-  console.log(data);
-  return <div>Comics</div>;
+const Comics = ({ comics }: any) => {
+  console.log(comics.data.results);
+  return (
+    <div className="flex h-[120vh] justify-center">
+      <div className="mt-8 max-h-[80vh] bg-rgba-darker  p-4 text-white">
+        <h2>Comics related:</h2>
+        <br />
+        <div className="grid grid-cols-2 gap-x-16 gap-y-2">
+          {comics.data.results.map((comic: any) => {
+            return (
+              <div key={comic.title}>
+                <p>{comic.title}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Comics;
