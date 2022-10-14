@@ -17,7 +17,7 @@ const Navbar = () => {
     <nav>
       <ul className="absolute bottom-2 left-8 flex w-2/4 items-center justify-around text-xl child:decoration-4 child:underline-offset-4">
         <li className={pathname === "/" ? "underline" : ""}>
-          <Link href="/">Home</Link>
+          <Link href="/">HOME</Link>
         </li>
         <li
           className={
@@ -26,21 +26,21 @@ const Navbar = () => {
               : ""
           }
         >
-          <Link href="/characters">Characters</Link>
+          <Link href="/characters">CHARACTERS</Link>
         </li>
         <li className={pathname === "/creators" ? "underline" : ""}>
-          <Link href="/creators">Creators</Link>
+          <Link href="/creators">CREATORS</Link>
         </li>
         <li className={pathname === "/comics" ? "underline" : ""}>
-          <Link href="/comics">Comics</Link>
+          <Link href="/comics">COMICS</Link>
         </li>
         <li className={pathname === "/events" ? "underline" : ""}>
-          <Link href="/events">Events</Link>
+          <Link href="/events">EVENTS</Link>
         </li>
 
         <li>
           <button onClick={() => setShowModal(true)} className="">
-            Search
+            SEARCH
           </button>
         </li>
       </ul>

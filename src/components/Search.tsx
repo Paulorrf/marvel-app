@@ -53,6 +53,16 @@ const Search = () => {
           />{" "}
           <label htmlFor="comics">Comics</label>
         </div>
+        <div>
+          <input
+            type="radio"
+            value="events"
+            id="events"
+            name="search"
+            onChange={handleChange}
+          />{" "}
+          <label htmlFor="events">Events</label>
+        </div>
       </div>
       <div className="flex h-[60%] items-center justify-center">
         <form onSubmit={handleSearch}>
